@@ -55,7 +55,8 @@ Meta에서 개발된 객체 분할 및 세그멘테이션 모델로, 제로샷 �
 ### SAM
 <details>
 <summary> Segment Anything Model </summary> 
- 📑[Paper](https://ai.meta.com/research/publications/segment-anything/) 
+	
+ 📑 [**Paper**](https://ai.meta.com/research/publications/segment-anything/) 
 
 
 대규모 데이터셋이 구축되지 않았던 기존의 Segmentation 작업은 매번 학습에 소모되는 시간과 비용이 너무 크다는 문제가 있었습니다. NLP 분야의 LLM처럼, **Zero-shot**이 가능한 모델을 만들수 없을까 했고, 2023년 4월 Meta에서는 Image Segmentation계의 **Foundation** 모델을 만드는 것을 목표로 이 모델을 발표했습니다.
@@ -86,7 +87,7 @@ Meta는 다음 세 가지를 새롭게 선보였습니다. **Task**, **Model**, 
 
 ### DeAOT
 <details>
-<summary> Decoupling features in Associating Objects with Transformers </summary> 
+<summary> Decoupling Features in Associating Objects with Transformers </summary> 
 
 📑 [**Paper**](https://arxiv.org/abs/2210.09782)
 
@@ -111,6 +112,7 @@ Visual branch는 패치별 시각적 임베딩에 대한 attention map을 계산
 ### E2FGVI
 <details>
 <summary> End-to-End Framework for Flow-Guided Video Inpainting </summary> 
+	
 📑 [**Paper**](https://arxiv.org/abs/2204.02663)
 
 마스킹 된 영역(Target object e.g. 특정 로고 etc.)을 영상의 flow와 사전 학습된 feature들을 이용해 Feature propagation과 Hallucination으로 Inpainting 역할을 하는 모델입니다.
@@ -155,8 +157,31 @@ Visual branch는 패치별 시각적 임베딩에 대한 attention map을 계산
 
 <br><br>
 ## 05 Project Results
--
--
+### GUI(Gradio)
+
+
+<p align="center">
+<img src="assets/r_baloon_seg.gif" height="200">
+<img src="assets/r_baloon_inpainted.gif" height="200">
+<img src="assets/r_baloon.gif" height="100">
+</p>
+
+
+
+<p align="center">
+<img src="assets/r_MarineDebris_seg.gif" height="200">
+<img src="assets/r_MarineDebris_inpainted.gif" height="200">
+<img src="assets/r_MarineDebris.gif" height="100">
+</p>
+
+<p align="center">
+<img src="assets/r_logo_seg.gif" height="200">
+<img src="assets/r_logo_inpainted.gif" height="200">
+<img src="assets/r_logo.gif" height="100">
+</p>
+
+<br>
+
 
 <br><br>
 ## 06 Project Retrospective
