@@ -39,9 +39,14 @@
   </br>해당 부분이 누락된 것처럼 분할된 객체를 Masking하여 인페인팅 알고리즘이 수행할 수 있게 한다.
   
 - **DeAOT** Tracking, use Long-term Memory
-  </br>Long-term Memory으로 Masking된 객체가 특정 프레임 내에서 따라 움직이는 것을 연속적으로 Tracking & Masking을 수행하여 동영상 내에 모든 마스킹 이미지를 추출한다.
-- **E2FGVI** 영상내 모든 마스킹된 대상을 인페인팅함
-- **Gradio** 라이브러리를 이용해 GUI를 구성함
+  </br>Long-term Memory으로 Masking된 객체가 특정 프레임 내에서 따라 움직이는 것을 연속적으로 Tracking & Masking을 수행하여
+  </br>동영상 내에 모든 마스킹 이미지를 추출한다.
+  
+- **E2FGVI** Inpainting
+  </br>Input 값으로 Masking된 영상을 넣으면 복원해야하는 누락된 지점으로 인식한다.
+  </br>이 과정에서 알고리즘은 주변의 픽셀 정보로 누락된 부분의 색생과 텍스처 등을 추정하고 채운다.
+  
+- **Gradio** 라이브러리를 이용해 인페인팅 GUI를 구성함
 
 <br><br>
 ## 04 Project Details Course
