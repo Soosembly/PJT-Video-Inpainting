@@ -154,33 +154,64 @@ Visual branch는 패치별 시각적 임베딩에 대한 attention map을 계산
 
 <br>
 
+### GUI
+<details>
+<summary> Gradio </summary>
+	
+**gradio** 라이브러리를 활용하여 SAM, DeAOT, E2FGVI 세가지 모델을 통합해서 **한 화면구성 안에서** 3가지 단계가 **모두 동작** 할 수 있도록 설계했다.
+
+<p align="center"> <b>전체 GUI</b> </p>
+
+<p align="center"><img src="assets/gui1.png" width="540"></p>
+
+<p align="center"> <b>하이퍼파라미터</b> 조절 블록 </p>
+
+<p align="center"><img src="assets/gui2.png" width="360"></p>
+
+<br>
+
+### Step 1. SAM 
+비디오를 로드하고 영상의 첫 프레임에서 인페인팅 하고자하는 로고를 포인트 프롬프트로 선택하여 마스킹을 한다. 아래 영상에서는 2개의 포인트 프롬프트로 전체 로고 선택이 가능했다.
+
+<p align="center"><img src="assets/gui3.gif" width="720"></p>
+
+### Step 2. DeAOT
+
+첫 프레임에서 마스킹된 로고를 나머지 프레임에서 자동 추적하여 마스킹하기위해 Tracking을 실행한다.
+<p align="center"><img src="assets/gui4.gif" width="720"></p>
+
+### Step 3. E2FGVI
+
+영상 내 모든 프레임에서 마스킹된 로고를 인페인팅하여 결과물을 다운로드한다. 
+<p align="center"><img src="assets/gui5.gif" width="720"></p>
+
+</details>
 
 <br><br>
 ## 05 Project Results
-### GUI(Gradio)
-
 
 <p align="center">
+<img src="assets/r_baloon.gif" height="100">
 <img src="assets/r_baloon_seg.gif" height="200">
 <img src="assets/r_baloon_inpainted.gif" height="200">
-<img src="assets/r_baloon.gif" height="100">
 </p>
 
 
 
 <p align="center">
+<img src="assets/r_MarineDebris.gif" height="100">
 <img src="assets/r_MarineDebris_seg.gif" height="200">
 <img src="assets/r_MarineDebris_inpainted.gif" height="200">
-<img src="assets/r_MarineDebris.gif" height="100">
 </p>
 
 <p align="center">
+<img src="assets/r_logo.gif" height="100">
 <img src="assets/r_logo_seg.gif" height="200">
 <img src="assets/r_logo_inpainted.gif" height="200">
-<img src="assets/r_logo.gif" height="100">
 </p>
 
 <br>
+
 
 
 <br><br>
