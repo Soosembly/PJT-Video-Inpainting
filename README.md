@@ -64,7 +64,7 @@ Meta에서 개발된 객체 분할 및 세그멘테이션 모델로, 제로샷 �
 - **작업(Task)**
 <br>'프롬프트 가능한 세그멘테이션 작업(Promptable Segmentation Task)'은 다양한 형태의 입력(점, 상자, 텍스트, 마스크)을 받아, 이미지 내 특정 영역을 분할하는 마스크를 생성한다. 이 작업은 모호한 프롬프트에도 유효한 세그멘테이션 결과를 제공하도록 설계되었다.
 
-<p align="center"><img src="assets/readme01.png" width="360"></p><br><br>
+<p align="center"><img src="assets/readme01.png" width="420"></p><br><br>
 
 - **모델(Model)** 
 <br>'Segment Anything Model' (SAM)은 이미지 인코더와 프롬프트 인코더, 마스크 디코더로 구성되어 있으며, 다양한 입력 프롬프트에 대응하여 마스크를 효율적으로 예측한다.
@@ -72,12 +72,12 @@ Meta에서 개발된 객체 분할 및 세그멘테이션 모델로, 제로샷 �
  	- 프롬프트 인코더(Prompt Encoder): 사용자의 지시(예: Text, Points, Boxes)를 처리하여 관련 임베딩을 생성. 이를 통해 모델이 사용자의 의도를 파악하고 적절한 반응을 할 수 있다.
   	- 마스크 디코더(Mask Decoder): 이미지 인코더와 프롬프트 인코더에서 얻은 정보를 결합하여 세그멘테이션 마스크를 생성. 이 과정에서 셀프 어텐션(Self-Attention)과 크로스 어텐션(Cross-Attention)을 활용하여 이미지와 프롬프트 임베딩을 모두 업데이트 하는데, 이 구조는 빠르고 효율적인 성능을 제공한다. 따라서 같은 이미지 임베딩을 여러 프롬프트와 함께 재사용할 수 있어, CPU환경에서도 웹 상에서 50ms 이내에 마스크를 예측할 수 있다. 이러한 빠른 처리 속도는 모델의 효율성과 사용자 경험을 향상시키는 중요한 요소이다. 
 
-<p align="center"><img src="assets/readme02.gif" width="360"></p><br><br>
+<p align="center"><img src="assets/readme02.gif" width="400"></p><br><br>
 
 - **데이터(Data)**
 <br>'SA-1B 데이터셋'은 메타의 'Segment Anything' 프로젝트의 일부로, 11백만 이미지와 10억 개의 세그멘테이션 마스크를 포함한다. 이 데이터셋은 다양한 이미지와 작업에 대해 모델의 일반화 능력을 향상시키도록 설계되었으며, 수집 과정은 수동, 반자동, 완전 자동의 세 단계로 이루어진다. 이 과정을 통해 대규모 마스크 데이터를 효율적으로 수집하고, SAM 모델의 성능을 극대화한다.
 
-<p align="center"><img src="assets/readme03.gif" width="520"></p><br><br>
+<p align="center"><img src="assets/readme03.gif" width="450"></p><br><br>
 </details>
 </br>
 
