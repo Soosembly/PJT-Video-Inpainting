@@ -57,60 +57,28 @@ Meta에서 개발된 객체 분할 및 세그멘테이션 모델로, 제로샷 �
 	
  📑 [**Paper**](https://ai.meta.com/research/publications/segment-anything/) 
 
-기존의 이미지 세그멘테이션 기술은 경계 감지(Edge Detection), 임계값 설정(Thresholding), 지역 기반 그룹화(Region-Based Grouping) 등의 방법을 사용했지만, 복잡한 이미지에서 정확도와 유연성에 한계가 있었다. 이러한 한계를 극복하기 위해 메타(Meta)에서 개발한 고급 이미지 세그멘테이션 모델인 SAM은 딥러닝과 인공지능 기술을 활용하여 이미지내의 다양한 객체를 정확하게 식별하고 분할할 수 있다.
+기존의 이미지 세그멘테이션 기술은 경계 감지(Edge Detection), 임계값 설정(Thresholding), 지역 기반 그룹화(Region-Based Grouping) 등의 방법을 사용했지만, 복잡한 이미지에서 정확도와 유연성에 한계가 있었다. 이러한 한계를 극복하기 위해 메타(Meta)에서 개발한 고급 이미지 세그멘테이션 모델인 SAM은 딥러닝과 인공지능 기술을 활용하여 이미지내의 다양한 객체를 정확하게 식별하고 분할할 수 있다.<br><br>
 
 메타 AI의 'Segment Anything' 프로젝트는 다음과 같이 세 부분으로 구성된다.
 
 - **작업(Task)**
 <br>'프롬프트 가능한 세그멘테이션 작업(Promptable Segmentation Task)'은 다양한 형태의 입력(점, 상자, 텍스트, 마스크)을 받아, 이미지 내 특정 영역을 분할하는 마스크를 생성한다. 이 작업은 모호한 프롬프트에도 유효한 세그멘테이션 결과를 제공하도록 설계되었다.
 
+<p align="center"><img src="assets/readme01.png" width="360"></p><br><br>
+
 - **모델(Model)** 
 <br>'Segment Anything Model' (SAM)은 이미지 인코더와 프롬프트 인코더, 마스크 디코더로 구성되어 있으며, 다양한 입력 프롬프트에 대응하여 마스크를 효율적으로 예측한다.
 	- 이미지 인코더(Image Encoder): 입력된 이미지에서 중요한 시각적 특징을 추출하여 임베딩을 생성. 이는 이미지의 복잡한 내용을 효과적으로 해석하는 데 중요하다.
  	- 프롬프트 인코더(Prompt Encoder): 사용자의 지시(예: Text, Points, Boxes)를 처리하여 관련 임베딩을 생성. 이를 통해 모델이 사용자의 의도를 파악하고 적절한 반응을 할 수 있다.
-  	- 마스크 디코더(Mask Decoder): 이미지 인코더와 프롬프트 인코더에서 얻은 정보를 결합하여 세그멘테이션 마스크를 생성. 이 과정에서 셀프 어텐션(Self-Attention)과 크로스 어텐션(Cross-Attention)을 활용하여 이미지와 프롬프트 임베딩을 모두 업데이트 하는데, 이 구조는 빠르고 효율적인 성능을 제공한다. 따라서 같은 이미지 임베딩을 여러 프롬프트와 함께 재사용할 수 있어, CPU환경에서도 웹 상에서 50ms 이내에 마스크를 예측할 수 있다. 이러한 빠른 처리 속도는 모델의 효율성과 사용자 경험을 향상시키는 중요한 요소이다.
+  	- 마스크 디코더(Mask Decoder): 이미지 인코더와 프롬프트 인코더에서 얻은 정보를 결합하여 세그멘테이션 마스크를 생성. 이 과정에서 셀프 어텐션(Self-Attention)과 크로스 어텐션(Cross-Attention)을 활용하여 이미지와 프롬프트 임베딩을 모두 업데이트 하는데, 이 구조는 빠르고 효율적인 성능을 제공한다. 따라서 같은 이미지 임베딩을 여러 프롬프트와 함께 재사용할 수 있어, CPU환경에서도 웹 상에서 50ms 이내에 마스크를 예측할 수 있다. 이러한 빠른 처리 속도는 모델의 효율성과 사용자 경험을 향상시키는 중요한 요소이다. 
+
+<p align="center"><img src="assets/readme02.gif" width="360"></p><br><br>
 
 - **데이터(Data)**
 <br>'SA-1B 데이터셋'은 메타의 'Segment Anything' 프로젝트의 일부로, 11백만 이미지와 10억 개의 세그멘테이션 마스크를 포함한다. 이 데이터셋은 다양한 이미지와 작업에 대해 모델의 일반화 능력을 향상시키도록 설계되었으며, 수집 과정은 수동, 반자동, 완전 자동의 세 단계로 이루어진다. 이 과정을 통해 대규모 마스크 데이터를 효율적으로 수집하고, SAM 모델의 성능을 극대화한다.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Meta는 다음 세 가지를 새롭게 선보였습니다. **Task**, **Model**, **Data**.
-1. **Task** ( Promptable Segmentation Task )\
-	Segment Anything Task의 핵심은 **프롬프팅이 가능**하다는 것.\
-	원하는 영역의 **Point**나 **Box** 또는 **자연어**, (+ **Mask**)로 구성된 프롬프트를 입력하면, 아무리 모호한 정보일지라도 유효한 Segmentation Mask를 출력한다.
-	<p align="center"><img src="assets/readme01.png" width="360"></p>
- 
-2. **Model** ( Segment Anything Model, SAM )\
-	이를 위한 모델인 SAM은 **두 개의 인코더**와 **하나의 디코더**로 구성.
-	Image Encoder와 Prompt Encoder로부터 온 임베딩 정보를 매핑해 Mask Decoder가 예측된 Segmentation Mask를 출력하는 구조.\
-	Mask Decoder는 Transformer의 Decoder를 조금 수정한 것으로, 이미지 임베딩과 프롬프트 임베딩을 모두 업데이트 하기 위해 **Self-Attention**과 **Cross-Attention**을 양방향으로 활용.\
-	SAM의 Prompt Encoder와 Mask Decoder는 **가볍고 빠름**.\
-	같은 이미지 임베딩이 여러 개의 프롬프트와 함께 재사용되기 때문에, CPU 환경의 웹 상에서 50ms 이하의 속도로 Mask를 예측할 수 있음.
-	<p align="center"><img src="assets/readme02.gif" width="360"></p>
-
-3. **Data** ( Segment Anythin Data Engine, SA-1B Dataset )\
-	Foundation 모델 개발에 있어 가장 중요한 것은 대규모 데이터셋.\
-	Segment Anything은 자체적인 **Data Engine**을 개발했고, 그 결과 10억 개의 Mask를 가진 **SA-1B** 데이터셋이 탄생했다.
-
-	<p align="center"><img src="assets/readme03.gif" width="520"></p>
-
+<p align="center"><img src="assets/readme03.gif" width="520"></p><br><br>
 </details>
-
 </br>
 
 ### DeAOT
