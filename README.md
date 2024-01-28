@@ -58,8 +58,26 @@ Meta에서 개발된 객체 분할 및 세그멘테이션 모델로, 제로샷 �
 	
  📑 [**Paper**](https://ai.meta.com/research/publications/segment-anything/) 
 
+기존의 이미지 세그멘테이션 기술은 주로 경계 감지, 임계값 설정, 지역 기반 그룹화등의 방법에 의존했지만, 복잡한 이미지에서의 정확도와 유연성의 한계를 가지고 있었다. 이러한 한계를 극복하기 위해 메타(Meta)에서 개발한 고급 이미지 세그멘테이션 모델인 SAM은 딥러닝과 인공지능 기술을 활용하여 이미지내의 다양한 객체를 정확하게 식별하고 분할할 수 있다.
 
-대규모 데이터셋이 구축되지 않았던 기존의 Segmentation 작업은 매번 학습에 소모되는 시간과 비용이 너무 크다는 문제가 있었습니다. NLP 분야의 LLM처럼, **Zero-shot**이 가능한 모델을 만들수 없을까 했고, 2023년 4월 Meta에서는 Image Segmentation계의 **Foundation** 모델을 만드는 것을 목표로 이 모델을 발표했습니다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Meta는 다음 세 가지를 새롭게 선보였습니다. **Task**, **Model**, **Data**.
 1. **Task** ( Promptable Segmentation Task )\
