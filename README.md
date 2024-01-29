@@ -87,20 +87,13 @@ Meta에서 개발된 객체 분할 및 세그멘테이션 모델로, 제로샷 �
 
 📑 [**Paper**](https://arxiv.org/abs/2210.09782)
 
-비디오 내의 객체들을 세밀하게 구분하는 'semi-supervised 비디오 객체 세분화(VOS, Video Object Segmentation)'에 관한 모델입니다. 특히, 비전트랜스포머를 사용, 'AOT(Associating Objects with Transformers)'라는 방법을 통해 VOS 문제를 해결하는 데 집중하고 있습니다. 
+DeAOT는 비디오 객체 세분화(VOS, Video Object Segmentation)를 위한 모델로, 비전 트랜스포머와 AOT(Associating Objects with Transformers)를 사용하여 객체들을 세밀하게 구분한다. 이 모델은 계층적 전파(hierarchical propagation) 방식을 사용하여 이전 프레임에서 현재 프레임으로 정보를 전달하는데, 깊은 층에서 시각적 정보 손실이 발생하는 문제를 해결하기 위해 게이트 전파 모듈(Gated Propagation Module, GPM)을 사용한다. DeAOT는 객체 정보와 무관한 정보를 분리하여 처리함으로써 기존 모델보다 효율적인 정보 전달을 가능하게 하고, 정확도와 효율성 면에서 우수한 성능을 보여준다.
 
-이전 프레임에서 현재 프레임으로 정보를 차례대로 전달하는 '계층적 전파 hierarchical propagation' 방식을 사용하며, 이 방식은 각 객체의 정보를 점진적으로 전달하지만, 깊은 층에서는 일부 시각적 정보가 손실될 수 있는 단점이 있습니다. 
+<p align="center"><img src="assets/readme05.png" width="420"></p><br><br>
 
-이 문제를 해결하기 위해, 연구자들은 'DeAOT'라는 새로운 접근 방식을 제안합니다. DeAOT는 객체별 정보와 무관한 정보를 분리하여 처리함으로써 보다 효율적인 정보 전달을 가능하게 합니다. 또한, 이 방법은 추가적인 계산 부담을 줄이기 위해 특별히 설계된 '게이트 전파 모듈 Gated Propagation Module(GPM)'을 사용합니다. 
+즉, DeAOT는 비디오 객체 세분화를 위한 혁신적인 모델로, 두 개의 독립된 branch를 사용한다. 첫 번째 Visual branch는 각 패치의 시각적 임베딩에 대한 주의력 지도(attention map)를 계산하여 객체 일치를 담당, 두 번째 ID Branch는 프레임 간 객체 정보를 효과적으로 전파한다. 이렇게 병렬적으로 처리되는 정보 흐름은 보다 정확하고 효율적인 객체 추적과 세분화를 가능하게 만든다.
 
-결과적으로, DeAOT는 기존 AOT 및 다른 방식의 모델인 XMem보다 뛰어난 정확도 및 효율성을 보여줍니다.
-
-<p align="center"><img src="assets/readme05.png" width="360"></p>
-
-다시 정리하면 DeAOT는 두 개의 독립된 branch를 통해서 객체의 visual features와 mask features의 정보를 계층적 전파를 하는 방식입니다.\
-Visual branch는 패치별 시각적 임베딩에 대한 attention map을 계산하여 객체를 일치시키는 역할을 하며 ID Branch는 객체별 정보를 과거 프레임에서 현재 프레임으로 전파하기 위한 역할을 합니다. 
-
-<p align="center"><img src="assets/readme05.gif" width="420"></p>
+<p align="center"><img src="assets/readme05.gif" width="420"></p><br><br>
 
 </details>
 </br>
